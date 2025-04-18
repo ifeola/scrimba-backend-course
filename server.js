@@ -1,4 +1,4 @@
-import express, { json } from "express";
+import express from "express";
 import startups from "./data.js";
 
 let app = express();
@@ -178,6 +178,10 @@ Test Cases
 	// Success: Send the found startup data with 200 OK (default status)
 	response.json(startup); // Use response.json for sending JSON data
 }); */
+
+app.get("/", (request, response) => {
+	response.send(startups);
+});
 
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
